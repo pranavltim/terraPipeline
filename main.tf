@@ -1,6 +1,6 @@
 provider "aws" {
-  access_key = "your aws access key here"
-  secret_key = "your aws secret key here"
+  access_key = ${{ secrets.AWS_ACCESS_KEY_ID }}
+  secret_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}"
   region     = "ap-south-1"
 }
 
@@ -15,17 +15,3 @@ lifecycle {
 
 }
 
-
-
-provider "aws" {
-  region = "ap-south-1"
-}
-
-resource "aws_instance" "example" {
-  ami           = "ami-08718895af4dfa033"  # Replace with your desired AMI ID
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "MyInstance1"
-  }
-}
